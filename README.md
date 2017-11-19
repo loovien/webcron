@@ -5,7 +5,7 @@
 
 ## 截图
 
-![screenshot](https://raw.githubusercontent.com/vvotm/webcron/master/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/vvotm/webcron/master/screenshot.jpg)
 
 ## 功能特点
 

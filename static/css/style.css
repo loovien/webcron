@@ -71,9 +71,9 @@ textarea {
 
 .navbar-inner {
 	padding: 7px 0;
-	
+
 	background: #00ba8b !important;
-	
+
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 	border-radius: 0;
@@ -251,9 +251,9 @@ textarea {
 */
 
 .main {
+	overflow: hidden;
 	padding-bottom: 2em;
-	
-	border-bottom: 1px solid #000;
+	/*border-bottom: 3px solid #000; */
 }
 
 
@@ -295,7 +295,7 @@ textarea {
 
 .extra li {
 	margin-bottom: .6em;
-	
+
 	list-style: none;
 }
 
@@ -307,17 +307,17 @@ textarea {
 */
 
 .footer {
-	margin-top: 0;
-	
-	border-top: 1px solid #292929;
+	/* margin-top: 0; */
+	/* border-top: 1px solid #292929; */
+	 /*margin-top: 0; */
+    width: 100%;
 }
 
 .footer-inner {
 	padding: 15px 0;
-	
 	font-size: 12px;
-	background: #111;
-	color: #999;
+    color: #999;
+	color: #000;
 }
 
 .footer a {

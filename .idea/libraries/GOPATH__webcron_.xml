@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;webcron&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../golang.org" />
+      <root url="file://$PROJECT_DIR$/../../../gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../../goweb" />
+      <root url="file://$PROJECT_DIR$/../.." />
+      <root url="file://$PROJECT_DIR$/../../../gonet_zwd" />
+      <root url="file://$PROJECT_DIR$/../../../xiaomi" />
+      <root url="file://$PROJECT_DIR$/../../../zhanqi.tv" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../golang.org" />
+      <root url="file://$PROJECT_DIR$/../../../gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../../goweb" />
+      <root url="file://$PROJECT_DIR$/../.." />
+      <root url="file://$PROJECT_DIR$/../../../gonet_zwd" />
+      <root url="file://$PROJECT_DIR$/../../../xiaomi" />
+      <root url="file://$PROJECT_DIR$/../../../zhanqi.tv" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>

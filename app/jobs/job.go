@@ -11,6 +11,7 @@ import (
 	"runtime/debug"
 	"strings"
 	"time"
+	"runtime"
 )
 
 var mailTpl *template.Template
@@ -68,6 +69,9 @@ func NewCommandJob(id int, name string, command string) *Job {
 		bufOut := new(bytes.Buffer)
 		bufErr := new(bytes.Buffer)
 		cmd := exec.Command("/bin/bash", "-c", command)
+		if runtime.GOOS == "windows" {
+			cmd = exec.Command("cmd", "/C", command)
+		}
 		cmd.Stdout = bufOut
 		cmd.Stderr = bufErr
 		cmd.Start()

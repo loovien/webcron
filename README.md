@@ -1,7 +1,7 @@
 # webcron
 ------------
 
-一个定时任务管理器，基于Go语言和beego框架开发。用于统一管理项目中的定时任务，提供可视化配置界面、执行日志记录、邮件通知等功能，无需依赖*unix下的crontab服务。
+一个定时任务管理器，基于Go语言和beego框架开发。颗粒度支持到秒级。用于统一管理项目中的定时任务，提供可视化配置界面、执行日志记录、邮件通知等功能，无需依赖*unix下的crontab服务。
 
 ## 项目背景
 
@@ -14,19 +14,20 @@
 * 可随时暂停任务。
 * 记录每次任务的执行结果。
 * 执行结果邮件通知。
-
-## 界面截图
-
-![webcron](https://raw.githubusercontent.com/lisijie/webcron/master/screenshot.png)
-
+* 跨平台支持。
 
 ## 安装说明
 
-系统需要安装Go和MySQL。
+依赖
+
+0. **Golang**
+1. **cron** [cron](https://github.com/robfig/cron) 我自己也fork一份
+2. **MySQL**
+
 
 获取源码
 
-	$ go get github.com/lisijie/webcron
+	$ go get github.com/vvotm/webcron
 	
 打开配置文件 conf/app.conf，修改相关配置。
 	

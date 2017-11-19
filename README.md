@@ -22,17 +22,37 @@
 
 0. **Golang**
 1. **cron** [cron](https://github.com/robfig/cron) 我自己也fork一份
+2. **go
 2. **MySQL**
 
 
-获取源码
+方案1使用`godep`工具(推荐)
 
-	$ go get github.com/vvotm/webcron
-	
+```bash
+    $ godep restore
+
+```
+
+方案2:
+
+```bash
+    $ go get github.com/astaxie/beego
+    $ go get github.com/go-sql-driver/mysql
+    $ go get github.com/vvtom/cron
+    $ go get github.com/vvtom/webcron
+```
+
+编译:
+
+```bash
+    $ cd gopath/github.com/vvotm/webcron
+    $ go build
+```
+
 打开配置文件 conf/app.conf，修改相关配置。
 	
 
-创建数据库webcron，再导入install.sql
+创建数据库webcron，初始化数据 `install.sql`
 
 	$ mysql -u username -p -D webcron < install.sql
 
@@ -45,7 +65,7 @@
 
 访问： 
 
-http://localhost:8000
+[访问:http://localhost:8000](http://localhost:8000)
 
 帐号：admin
 密码：admin888

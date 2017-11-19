@@ -2,3 +2,4 @@ webcron*
 bin/
 *.tar.gz
 .idea
+vendor

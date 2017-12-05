@@ -1,6 +1,5 @@
 <div class="row">
 <div class="span12">      		
-	   		
 	<div class="widget ">
 		<div class="widget-header">
 			<i class="icon-th-list"></i>
@@ -12,7 +11,7 @@
 		<div class="alert hide" role="alert"></div>
 		
 		<div class="btn-toolbar">
-		
+
 			<div class="btn-group btn-batch">
 				<a class="btn btn-large" href="#"><i class="icon-edit icon-white"></i> 批量操作</a>
 				<a class="btn btn-large dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
@@ -23,14 +22,14 @@
 				<li><a href="javascript:;" onclick="javascript:batch('delete');"><i class="icon-trash"></i> 删除</a></li>
 				</ul>
 			</div>
-			
+
 			<div class="btn-group">
 			<a href="{{urlfor "TaskController.Add"}}" class="btn btn-large btn-info"><span class="icon-plus"></span> 新建任务</a>
 			</div>
-			
-			<div class="btn-group  btn-large" style="float:right">
+
+			<div class="btn-group  btn-large row" style="float:right">
 			<form method="post" name="s" action="{{urlfor "TaskController.List"}}">
-				<select name="groupid" class="btn-large">
+				<select name="groupid" class="btn-small col-md-2">
 					<option value="0">全部分组</option>
 					{{range $k, $v := .groups}}
 					<option value="{{$v.Id}}" {{if eq $v.Id $.groupid}}selected{{end}}>{{$v.GroupName}}</option>
@@ -38,7 +37,7 @@
 				</select>
 			</form>
 			</div>
-			
+
 		</div>
 
 		<form id="form-list" method="post" action="">

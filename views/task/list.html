@@ -1,16 +1,16 @@
 <div class="row">
 		<div class="form-control">
 			<div class="btn-group pull-right">
-				<!--<form method="post" name="s" action="{{urlfor "TaskController.List"}}">-->
-				<select name="groupid" style="width: 120px;">
+				<form method="post" action="{{urlfor "TaskController.List"}}">
+				<select name="groupid" id="js-group" style="width: 120px;">
 					<option value="0">全部分组</option>
 					{{range $k, $v := .groups}}
 					<option value="{{$v.Id}}" {{if eq $v.Id $.groupid}}selected{{end}}>{{$v.GroupName}}</option>
 					{{end}}
 				</select>
-				<input type="text" placeholder="输入任务名称搜索">
-				<button class="btn btn-primary" style="float: right;"> <i class="icon-search icon-white"></i> 搜索</button>
-				<!--</form>-->
+				<input type="text" id="js-name-search" name="taskName" value="{{.taskName}}" placeholder="输入任务名称搜索">
+				<button class="btn btn-primary js-search" style="float: right;"> <i class="icon-search icon-white"></i> 搜索</button>
+				</form>
 			</div>
 		</div>
 </div>

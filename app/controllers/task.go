@@ -26,6 +26,11 @@ func (this *TaskController) List() {
 	if groupId > 0 {
 		filters = append(filters, "group_id", groupId)
 	}
+
+	taskName := this.GetString("taskName")
+	if taskName != "" {
+		filters = append(filters, "task_name__icontains", taskName)
+	}
 	result, count := models.TaskGetList(page, this.pageSize, filters...)
 
 	list := make([]map[string]interface{}, len(result))
@@ -66,6 +71,7 @@ func (this *TaskController) List() {
 	this.Data["list"] = list
 	this.Data["groups"] = groups
 	this.Data["groupid"] = groupId
+	this.Data["taskName"] = taskName
 	this.Data["pageBar"] = libs.NewPager(page, int(count), this.pageSize, beego.URLFor("TaskController.List", "groupid", groupId), true).ToString()
 	this.display()
 }

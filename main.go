@@ -8,11 +8,19 @@ import (
 	"github.com/vvotm/webcron/app/models"
 	"html/template"
 	"net/http"
+
+	"github.com/vvotm/webcron/app/libs"
 )
 
 const VERSION = "1.0.0"
 
-func main() {
+func main()  {
+	zqutil := libs.NewZqUtil()
+	emailTxt := `{"cmdid":"sendmail", "title":"test", "body":"<h1>haha</h1>", "tpl":"common","toMail":[["luowenhui@bianfeng.com"]]}`
+	zqutil.SendNotifyEmail(emailTxt)
+}
+
+func main1() {
 	models.Init()
 	jobs.InitJobs()
 

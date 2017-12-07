@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/astaxie/beego"
-	"github.com/vvotm/webcron/app/mail"
 	"github.com/vvotm/webcron/app/models"
 	"html/template"
 	"os/exec"
@@ -12,6 +11,8 @@ import (
 	"strings"
 	"time"
 	"runtime"
+	"github.com/vvotm/webcron/app/libs"
+	"encoding/json"
 )
 
 var mailTpl *template.Template
@@ -186,12 +187,32 @@ func (j *Job) Run() {
 
 		content := new(bytes.Buffer)
 		mailTpl.Execute(content, data)
-		ccList := make([]string, 0)
+		ccList := [][]string{}
 		if j.task.NotifyEmail != "" {
-			ccList = strings.Split(j.task.NotifyEmail, "\n")
+			cList := strings.Split(j.task.NotifyEmail, "\n")
+			for _, email := range cList {
+				ccList = append(ccList, []string{email})
+			}
 		}
-		if !mail.SendMail(user.Email, user.UserName, title, content.String(), ccList) {
+		/* if !mail.SendMail(user.Email, user.UserName, title, content.String(), ccList) {
 			beego.Error("发送邮件超时：", user.Email)
+		} */
+		zqutil := libs.NewZqUtil()
+		proto := struct {
+			Cmdid string `json:"cmdid"`
+			Title string `json:"title"`
+			Body string `json:"body"`
+			Tpl string `json:"tpl"`
+			ToMail [][]string `json:"toMail"`
+		}{Cmdid:"sendmail", Title:title, Body:content.String(), Tpl:"common", ToMail:ccList}
+
+		emailTxt, err := json.Marshal(proto)
+		if err != nil {
+			beego.Error("邮件发送失败", proto)
+			return
+		}
+		if zqutil.SendNotifyEmail(string(emailTxt)) != nil {
+			beego.Error("邮件协议发送失败")
 		}
 	}
 }

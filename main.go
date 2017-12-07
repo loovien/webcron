@@ -8,19 +8,34 @@ import (
 	"github.com/vvotm/webcron/app/models"
 	"html/template"
 	"net/http"
-
-	"github.com/vvotm/webcron/app/libs"
+	"fmt"
+	"encoding/json"
 )
 
 const VERSION = "1.0.0"
 
-func main()  {
-	zqutil := libs.NewZqUtil()
-	emailTxt := `{"cmdid":"sendmail", "title":"test", "body":"<h1>haha</h1>", "tpl":"common","toMail":[["luowenhui@bianfeng.com"]]}`
-	zqutil.SendNotifyEmail(emailTxt)
+func main1()  {
+	ccList := [][]string{}
+	ccList = append(ccList, []string{"luowenhui@bianfeng.com"})
+	proto := struct {
+		Cmdid string `json:"cmdid"`
+		Title string `json:"title"`
+		Body string `json:"body"`
+		Tpl string `json:"tpl"`
+		ToMail [][]string `json:"toMail"`
+	}{Cmdid:"sendmail", Title:"ok", Body:"lahah", Tpl:"common", ToMail:ccList}
+
+	fmt.Println(proto)
+	txt, err := json.Marshal(proto)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(string(txt))
+
 }
 
-func main1() {
+func main() {
 	models.Init()
 	jobs.InitJobs()
 

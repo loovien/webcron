@@ -33,6 +33,7 @@ func init() {
 <p>-------------以下是任务执行输出-------------</p>
 <p>{{.output}}</p>
 <p>
+<p>{{.errput}}</p>
 --------------------------------------------<br />
 本邮件由系统自动发出，请勿回复<br />
 如果要取消邮件通知，请登录到系统进行设置<br />
@@ -173,6 +174,7 @@ func (j *Job) Run() {
 		data["start_time"] = beego.Date(t, "Y-m-d H:i:s")
 		data["process_time"] = float64(ut) / 1000
 		data["output"] = cmdOut
+		data["errput"] = cmdErr
 
 		if isTimeout {
 			title = fmt.Sprintf("任务执行结果通知 #%d: %s", j.task.Id, "超时")

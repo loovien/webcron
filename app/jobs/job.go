@@ -191,15 +191,16 @@ func (j *Job) Run() {
 
 		content := new(bytes.Buffer)
 		mailTpl.Execute(content, data)
+
 		ccList := [][]string{}
+		cList := strings.Split(j.task.NotifyEmail, "\n")
 		if j.task.NotifyEmail != "" {
-			cList := strings.Split(j.task.NotifyEmail, "\n")
 			for _, email := range cList {
 				ccList = append(ccList, []string{email})
 			}
 		}
 		if !mail.IsUseZqTcpEmail() {
-			if !mail.SendMail(user.Email, user.UserName, title, content.String(), ccList) {
+			if !mail.SendMail(user.Email, user.UserName, title, content.String(), cList) {
 				beego.Error("发送邮件超时：", user.Email)
 			}
 			return

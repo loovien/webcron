@@ -10,6 +10,7 @@ import (
 var (
 	sendCh chan *utils.Email
 	config string
+	isUseZqTcpEmail bool = false
 )
 
 func init() {
@@ -19,6 +20,7 @@ func init() {
 	username := beego.AppConfig.String("mail.user")
 	password := beego.AppConfig.String("mail.password")
 	from := beego.AppConfig.String("mail.from")
+	isUseZqTcpEmail, _ = beego.AppConfig.Bool("mail.usezqmode")
 	if port == 0 {
 		port = 25
 	}
@@ -57,4 +59,8 @@ func SendMail(address, name, subject, content string, cc []string) bool {
 	case <-time.After(time.Second * 3):
 		return false
 	}
+}
+
+func isUseZqTcpEmail()  {
+	return isUseZqTcpEmail
 }

@@ -49,7 +49,7 @@
 			}
             var deleteUrl = "{{urlfor "TaskController.LogBatch"}}" + "?action=delete";
 	        $.post(deleteUrl, {ids: logId}).then(function () {
-	            window.location.href = E_return.attr("href");
+	            history.back();
             });
         });
 

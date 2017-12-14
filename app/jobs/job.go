@@ -13,6 +13,7 @@ import (
 	"runtime"
 	"github.com/vvotm/webcron/app/libs"
 	"encoding/json"
+	"github.com/vvotm/webcron/app/mail"
 )
 
 var mailTpl *template.Template
@@ -197,9 +198,13 @@ func (j *Job) Run() {
 				ccList = append(ccList, []string{email})
 			}
 		}
-		/* if !mail.SendMail(user.Email, user.UserName, title, content.String(), ccList) {
-			beego.Error("发送邮件超时：", user.Email)
-		} */
+		if !mail.IsUseZqTcpEmail() {
+			if !mail.SendMail(user.Email, user.UserName, title, content.String(), ccList) {
+				beego.Error("发送邮件超时：", user.Email)
+			}
+			return
+		}
+
 		zqutil := libs.NewZqUtil()
 		proto := struct {
 			Cmdid string `json:"cmdid"`

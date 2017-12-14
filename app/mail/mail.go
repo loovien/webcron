@@ -61,6 +61,6 @@ func SendMail(address, name, subject, content string, cc []string) bool {
 	}
 }
 
-func isUseZqTcpEmail()  {
+func IsUseZqTcpEmail() bool  {
 	return isUseZqTcpEmail
 }

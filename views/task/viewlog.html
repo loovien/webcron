@@ -28,11 +28,31 @@
 		<hr />
 		
 		<div class="btn-group">
-			<a href="{{urlfor "TaskController.Logs" "id" .task.Id}}" class="btn btn-large"><span class="icon-chevron-left"></span> 返 回</a>
+			<a href="{{urlfor "TaskController.Logs" "id" .task.Id}}" class="btn btn-large js-return"><span class="icon-chevron-left"></span> 返 回</a>
+            <button class="btn btn-danger btn-large js-deletelog" data-logid="{{.data.id}}"><span class="icon-trash"></span>  删除</button>
 		</div>
-			
 		</div>
 		
 	</div>
 </div>
 </div> <!-- /row -->
+
+<script>
+	(function () {
+	    var E_delete = $(".js-deletelog");
+	    var E_return = $(".js-return");
+	    E_delete.on("click",function () {
+	        var that = $(this);
+	        var logId = that.data("logid");
+	        if (logId <= 0) {
+	            return;
+			}
+            var deleteUrl = "{{urlfor "TaskController.LogBatch"}}" + "?action=delete";
+	        $.post(deleteUrl, {ids: logId}).then(function () {
+	            window.location.href = E_return.attr("href");
+            });
+        });
+
+    })();
+
+</script>

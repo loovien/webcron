@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	"github.com/vvotm/webcron/app/libs"
-	"github.com/vvotm/webcron/app/models"
+	"github.com/loovien/webcron/app/libs"
+	"github.com/loovien/webcron/app/models"
 	"strconv"
 	"strings"
 )

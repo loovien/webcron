@@ -4,16 +4,16 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/astaxie/beego"
-	"github.com/vvotm/webcron/app/models"
+	"github.com/loovien/webcron/app/models"
 	"text/template"
 	"os/exec"
 	"runtime/debug"
 	"strings"
 	"time"
 	"runtime"
-	"github.com/vvotm/webcron/app/libs"
+	"github.com/loovien/webcron/app/libs"
 	"encoding/json"
-	"github.com/vvotm/webcron/app/mail"
+	"github.com/loovien/webcron/app/mail"
 )
 
 var mailTpl *template.Template

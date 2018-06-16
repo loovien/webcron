@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/vvotm/webcron",
+	"ImportPath": "github.com/loovien/webcron",
 	"GoVersion": "go1.8",
 	"GodepVersion": "v79",
 	"Deps": [
@@ -59,7 +59,7 @@
 			"Rev": "53e2a9bf25b20e8f597896666f0663d84e22c68e"
 		},
 		{
-			"ImportPath": "github.com/vvotm/cron",
+			"ImportPath": "github.com/loovien/cron",
 			"Comment": "v1-8-g1c5ac61",
 			"Rev": "1c5ac61b9f223a25acfc6754287389b821f64656"
 		}

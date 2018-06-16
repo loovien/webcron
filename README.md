@@ -10,7 +10,7 @@
 
 ## 截图
 
-![screenshot](https://raw.githubusercontent.com/vvotm/webcron/master/screenshot.jpg)
+![screenshot](https://raw.githubusercontent.com/loovien/webcron/master/screenshot.jpg)
 
 ## 功能特点
 
@@ -43,14 +43,14 @@
 ```bash
     $ go get github.com/astaxie/beego
     $ go get github.com/go-sql-driver/mysql
-    $ go get github.com/vvtom/cron
-    $ go get github.com/vvtom/webcron
+    $ go get github.com/loovien/cron
+    $ go get github.com/loovien/webcron
 ```
 
 编译:
 
 ```bash
-    $ cd gopath/github.com/vvotm/webcron
+    $ cd gopath/github.com/loovien/webcron
     $ go build
 ```
 

@@ -2,10 +2,10 @@ package main
 
 import (
 	"github.com/astaxie/beego"
-	"github.com/vvotm/webcron/app/controllers"
-	"github.com/vvotm/webcron/app/jobs"
-	_ "github.com/vvotm/webcron/app/mail"
-	"github.com/vvotm/webcron/app/models"
+	"github.com/loovien/webcron/app/controllers"
+	"github.com/loovien/webcron/app/jobs"
+	_ "github.com/loovien/webcron/app/mail"
+	"github.com/loovien/webcron/app/models"
 	"html/template"
 	"net/http"
 	"fmt"

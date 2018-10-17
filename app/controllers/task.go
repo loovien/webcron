@@ -27,6 +27,10 @@ func (this *TaskController) List() {
 		filters = append(filters, "group_id", groupId)
 	}
 
+	if groupId < 0 {
+		filters = append(filters, "status", 0)
+	}
+
 	taskName := this.GetString("taskName")
 	if taskName != "" {
 		filters = append(filters, "task_name__icontains", taskName)

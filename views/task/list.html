@@ -4,6 +4,7 @@
 				<form method="post" action="{{urlfor "TaskController.List"}}">
 				<select name="groupid" id="js-group" style="width: 120px;">
 					<option value="0">全部分组</option>
+                    <option value="-1">暂停</option>
 					{{range $k, $v := .groups}}
 					<option value="{{$v.Id}}" {{if eq $v.Id $.groupid}}selected{{end}}>{{$v.GroupName}}</option>
 					{{end}}
